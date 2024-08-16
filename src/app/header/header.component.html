@@ -1,0 +1,73 @@
+<header id="header-top" class="d-none d-lg-flex">
+  <div class="container">
+    <div class="d-md-flex justify-content-between align-items-center py-3">
+      <a class="navbar-brand" routerLink="/">
+        <img src="images/main-logo.png" class="logo img-fluid">
+      </a>
+      <p class="phone m-0 fs-5 text-white fw-medium text-capitalize d-flex align-items-center">
+        <svg class="text-yellow-500 me-2" width="25" height="25">
+          <use xlink:href="icons/default-icons.svg#phone"></use>
+        </svg>666-333-9999
+      </p>
+    </div>
+  </div>
+</header>
+
+<header id="header" class="sticky-top">
+  <div class="container-lg px-0 px-lg-2">
+    <nav id="primary-header" class="navbar navbar-expand-lg bg-light rounded-3 shadow-sm z-2 py-2 py-lg-3">
+      <div class="container justify-content-between">
+        <div class="d-flex d-lg-none">
+          <a class="navbar-brand" routerLink="/">
+            <img src="images/dark-logo.png" class="logo img-fluid">
+          </a>
+        </div>
+
+        <button class="navbar-toggler d-flex d-lg-none justify-content-end border-0 shadow-none p-0" type="button"
+          data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false">
+          <svg class="navbar-icon" width="60" height="60">
+            <use xlink:href="icons/default-icons.svg#navbar-icon"></use>
+          </svg>
+        </button>
+
+        <div class="header-bottom offcanvas offcanvas-end" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel">
+          <div class="offcanvas-header px-4 mt-3 mb-1">
+            <button type="button" class="btn-close btn-close-black shadow-none" data-bs-dismiss="offcanvas"
+              aria-label="Close" data-bs-target="#bdNavbar"></button>
+          </div>
+
+          <div class="offcanvas-body d-flex justify-content-lg-center align-items-lg-center">
+            <ul class="navbar-nav mb-2 mb-lg-0">
+
+              @for (item of routes; track $index) {
+              <li class="nav-item border-end py-1 py-lg-0">
+                <a class="nav-link p-0" routerLinkActive="active" [routerLink]="item.route.path"
+                  ariaCurrentWhenActive="page">{{item.name}}</a>
+              </li>
+              }
+
+              <li class="nav-item search-dropdown py-3 py-lg-0  dropdown">
+                <a class="nav-link p-0 search dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                  aria-expanded="false">
+                  <svg class="search" width="24" height="24">
+                    <use xlink:href="icons/default-icons.svg#search"></use>
+                  </svg>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end animate slide mt-3 border-0 p-3 shadow">
+                  <li class="position-relative d-flex align-items-center p-0">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-primary position-absolute end-0" type="submit">
+                      <svg class="search" width="24" height="24">
+                        <use xlink:href="icons/default-icons.svg#search"></use>
+                      </svg>
+                    </button>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>

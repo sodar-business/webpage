@@ -59,8 +59,54 @@ CSS STRUCTURE:
 /*--------------------------------------------------------------
 /** 1. VARIABLES
 --------------------------------------------------------------*/
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+
+$all-colors: map-merge-multiple($blues, $indigos, $purples, $pinks, $reds, $oranges, $yellows, $greens, $teals, $cyans);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "background-color": map-merge(
+      map-get($utilities, "background-color"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "background-color"), "values"),
+          (
+            $all-colors
+          ),
+        ),
+      ),
+    ),
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "color": map-merge(
+      map-get($utilities, "color"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "color"), "values"),
+          (
+            $all-colors
+          ),
+        ),
+      ),
+    ),
+  )
+);
+
+@import "bootstrap/scss/utilities/api";
+
 :root {
   --primary-color: #F8A325;
+  --bs-primary-text-emphasis: #F8A325; 
   --secondary-color: #05213C;
   --black-color: #323232;
   --light-black-color: #444444;
@@ -128,10 +174,6 @@ a:hover {
   color: var(--light-color) !important;
 }
 
-.text-primary {
-  color: var(--primary-color) !important;
-}
-
 .text-black {
   color: var(--black-color) !important;
 }
@@ -142,7 +184,7 @@ a:hover {
   background-color: var(--light-color) !important;
 }
 
-.bg-primary {
+.bg-yellow-500 {
   background-color: var(--primary-color) !important;
 }
 
@@ -225,7 +267,7 @@ h6 {
 /* - Content width
 --------------------------------------------------------------*/
 .container-xxl {
-  max-width: 1750px;
+  max-width: 1750px !important;
 }
 
 
