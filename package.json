@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build:prod": "ng build --configuration production --base-href /webpage/",
+    "build:prod": "ng build --configuration production --base-href /webpage/ && copy dist\\sodar\\browser\\index.html dist\\sodar\\browser\\404.html",
     "serve:prod": "ng serve --configuration production"
   },
   "private": true,
